@@ -21,6 +21,7 @@ Global Styles
 ==================================
 */
 * {
+  border: 2px solid red;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -51,22 +52,57 @@ h1 {
 h2 {
   margin-bottom: 0;
 }
-p{
-    font-weight: 300;
-    font-size: 0.7rem;
-    line-height: 2;
+p {
+  font-weight: 300;
+  font-size: 0.7rem;
+  line-height: 2;
 }
 /* button */
-.btn{
-    display: block;
-    padding: 0.5rem 1rem;
-    text-transform: capitalize;
-    border: 3px solid var(--primaryColor);
-    color: var(--primaryColor);
-    margin: 3rem;
-    transition: var(--mainTransition);
+.btn {
+  display: block;
+  padding: 0.5rem 1rem;
+  text-transform: capitalize;
+  border: 3px solid var(--primaryColor);
+  color: var(--primaryColor);
+  margin: 3rem;
+  transition: var(--mainTransition);
 }
-.btn:hover{
-    background-color: var(--primaryColor);
-    color: var(--mainWhite);
+.btn:hover {
+  background-color: var(--primaryColor);
+  color: var(--mainWhite);
+}
+/* 
+==================================
+Main Navbar
+==================================
+*/
+.main-navbar {
+  background-color: var(--darkGrey);
+  padding: 0 2rem;
+}
+.main-navbar li {
+  list-style-type: none;
+}
+.main-navbar a {
+  text-transform: capitalize;
+  display: block;
+  padding: 1rem 0;
+  color: var(--primaryColor);
+  letter-spacing: var(--mainSpacing);
+  transition: var(--mainTransition);
+}
+.main-navbar a:hover {
+  color: var(--mainBlack);
+}
+@media screen and (min-width: 990px) {
+  .main-navbar ul {
+    max-width: 1170px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /* justify-items: center; */
+  }
+  .main-navbar a{
+      text-align: center;
+  }
 }
