@@ -120,10 +120,10 @@ Hero Pjct
   justify-content: center;
   align-content: center;
 }
-.hero-banner {
+/* .hero-banner {
   /* background-color: blue; */
-  /* text-align: center; */
-}
+/* text-align: center; */
+/* }  */
 .hero-banner p {
   width: 80%;
   max-width: 560px;
@@ -186,7 +186,7 @@ Cards Pjct
     grid-template-columns: repeat(3,1fr);
   }
 } */
-.card{
+.card {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto 1fr auto;
@@ -201,72 +201,175 @@ Cards Pjct
 Tiles Pjct
 ==================================
 */
-.tiles{
+.tiles {
   padding: 4rem 0;
 }
-.title{
+.title {
   text-align: center;
 }
-.tiles-center{
+.tiles-center {
   width: 90vw;
   max-width: 1170px;
   margin: 2rem auto;
   display: grid;
   row-gap: 2rem;
 }
-@media screen and (min-width:768px){
-  .tiles-center{
+@media screen and (min-width: 768px) {
+  .tiles-center {
     grid-template-columns: 1fr 1fr;
     column-gap: 2rem;
   }
 }
-@media screen and (min-width:992px){
-  .tiles-center{
+@media screen and (min-width: 992px) {
+  .tiles-center {
     grid-template-columns: 1fr 1fr 1fr;
   }
 }
-@media screen and (min-width:1170px){
-  .tiles-center{
-    grid-template-columns: repeat(4,1fr);
-    grid-template-rows: repeat(5,220px);
-    grid-template-areas: 
-    "a a a b"
-    "a a a c"
-    "d d d d"
-    "e f f f"
-    "e g h i"
-    ;
+@media screen and (min-width: 1170px) {
+  .tiles-center {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 220px);
+    grid-template-areas:
+      "a a a b"
+      "a a a c"
+      "d d d d"
+      "e f f f"
+      "e g h i";
   }
-  .tiles-img{
+  .tiles-img {
     height: 100%;
     object-fit: cover;
   }
-  .tile-1{
+  .tile-1 {
     grid-area: a;
   }
-  .tile-2{
+  .tile-2 {
     grid-area: b;
   }
-  .tile-3{
+  .tile-3 {
     grid-area: c;
   }
-  .tile-4{
+  .tile-4 {
     grid-area: d;
   }
-  .tile-5{
+  .tile-5 {
     grid-area: e;
   }
-  .tile-6{
+  .tile-6 {
     grid-area: f;
   }
-  .tile-7{
+  .tile-7 {
     grid-area: g;
   }
-  .tile-8{
+  .tile-8 {
     grid-area: h;
   }
-  .tile-9{
+  .tile-9 {
     grid-area: i;
   }
 }
 
+/* 
+==================================
+Layout Pjct
+==================================
+*/
+.header {
+  background: var(--primaryColor);
+  color: var(--mainWhite);
+  text-align: center;
+  padding: 0.5rem 0;
+}
+.navbar {
+  background: var(--darkGrey);
+}
+.navbar li {
+  list-style-type: none;
+}
+.navbar a {
+  padding: 1rem;
+  display: inline-block;
+  text-transform: capitalize;
+  letter-spacing: var(--mainSpacing);
+  font-size: 1.2rem;
+  color: var(--mainBlack);
+  transition: var(--mainTransition);
+}
+.navbar a:hover {
+  color: var(--mainWhite);
+}
+.content {
+  padding: 2rem;
+}
+.content p {
+  font-size: 1rem;
+}
+.sidebar {
+  background-color: var(--primaryColor);
+  padding: 1rem 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-items: center;
+  color: var(--mainWhite);
+  font-size: 1.2rem;
+}
+.footer {
+  background-color: var(--mainBlack);
+  color: var(--mainWhite);
+  text-align: center;
+  text-transform: capitalize;
+  padding: 0.5rem 0;
+}
+.footer p {
+  font-size: 1.2rem;
+}
+.main {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto 1fr auto auto;
+}
+@media screen and (min-width: 768px) {
+  .navbar ul {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-items: center;
+  }
+}
+@media screen and (min-width: 992px) {
+  .main {
+    grid-template-columns: [start] 200px [col-1-end] 1fr [col-2-end] 50px [end];
+    grid-template-rows: [start] auto [row-1-end] 1fr [row-2-end] auto [end];
+  }
+  .header {
+    grid-column: start/end;
+    grid-row: start/row-1-end;
+  }
+  .navbar {
+    grid-column: start/col-1-end;
+    grid-row: row-1-end/row-2-end;
+  }
+  .content {
+    grid-column: col-1-end/col-2-end;
+    grid-row: row-1-end/row-2-end;
+  }
+  .sidebar {
+    grid-column: col-2-end/end;
+    grid-row: row-1-end/row-2-end;
+  }
+  .footer {
+    grid-column: start/end;
+    grid-row: row-2-end/end;
+  }
+  .navbar ul{
+    grid-template-columns: 1fr;
+    align-items: center;
+    min-height: 100%;
+  }
+  .sidebar {
+    grid-template-columns: 1fr;
+    align-items: center;
+    min-height: 100%;
+    background-color: var(--darkGrey);
+  }
+}
